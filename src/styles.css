@@ -5,3 +5,20 @@
 .btn-primary{
     @apply border-2 rounded-md border-solid border-lime-800 py-1 px-1 transition ease-in-out delay-150 hover:bg-lime-700 hover:text-white hover:scale-110 hover:duration-300;
 }
+.btn-up {
+    position: fixed;
+    background-color: #484846 ;
+    right: 20px;
+    bottom: 200px;
+    border-radius: 20px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+}
+
+.btn-up_hide {
+    display: none;
+  }
