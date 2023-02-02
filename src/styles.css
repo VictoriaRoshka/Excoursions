@@ -21,4 +21,13 @@
 
 .btn-up_hide {
     display: none;
-  }
+}
+
+.rating{
+    background-image: url('../images/starIcon.png');
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    width: 30px;
+    height: 30px;
+}
