@@ -9,11 +9,16 @@ async function showTours(){
   const response = await fetch('https://www.bit-by-bit.ru/api/student-projects/tours')
   const tours = await response.json()
 
+  let searchCity = null
+  let emptyCityObject = tours.filter(tour => tour.city === searchCity)
+  console.log(emptyCityObject)
+
+
   tours.forEach(tour => {
 
     container.innerHTML += `<div class="flex flex-col gap-1 bg-white drop-shadow-lg rounded-md justify-between">
     <div><img class="rounded-tl-md rounded-tr-md object-contain" src="${tour.image}" alt=""/></div>
-    <div class="flex items-center justife-center"><h2 class="text-xl font-medium text-gray-700 px-2">${tour.city}</h2><p>,</p><h3 class="text-md font-small text-gray-700 px-2">${tour.country}</h3></div>
+    <div class="flex items-center justife-center"><h2 class="text-xl font-medium text-gray-700 px-2">${tour.city},</h2><h3 class="text-xl font-medium text-gray-700 px-2">${tour.country}</h3></div>
     <div class="flex justify-between px-2"><h1 class="font-bold text-xl text-amber-700">${tour.hotelName}</h1>
   <div class="rating flex"><div class="items-center justify-center text-md font-medium text-justify text-gray-700">${tour.rating}</div></div></div>
     <div class="flex px-2 gap-1 items-center">
