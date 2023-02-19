@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <meta content="width=device-width, initial-scale=1.0" name="viewport">
+        <meta content="width=device-width, initial-scale=1.0" name="viewport" />
         <title>Туристическая компания "Виктория"</title>
         <link rel="stylesheet" href="styles.css" />
         <script type="module" src="app.js"></script>
@@ -11,24 +11,90 @@
     <body>
         <div class="bg-gray-100 py-7 px-4 min-h-screen">
             <div class="max-w-5xl m-auto">
-              
-              <div class="flex justify-end gap-4 py-4">
-                <button class="btn-primary">Избранное</button>
-                <button class="btn-primary">Искать тур</button>
-              </div>
-                <h1 class="text-gray-800 text-4xl font-sans text-center font-semibold pt-2">Доступные туры компании</h1>
+                <div class="flex justify-end gap-4 py-4">
+                    <button class="btn-primary">Избранное</button>
+                    <button class="btn-primary" id="openFilerMenu">Искать тур</button>
+                </div>
+
+                <div class="filter-box" id="filter-box">
+                    <div class="flex justify-end">
+                        <button id="closeFilerMenu">
+                            <img
+                                class="w-6 h-6"
+                                src="../images/closeicon.png"
+                                alt=""
+                            />
+                        </button>
+                    </div>
+                    <div class="flex gap-6 justify-around">
+                        <div class="filter-box_item">
+                            <div class="filter-box__title">Страна</div>
+                            <select
+                                class="focus:outline-lime-800 outline-solid"
+                            >
+                                <option>Все страны</option>
+                                <option>Тайланд</option>
+                                <option>Мальдивы</option>
+                                <option>Индонезия</option>
+                            </select>
+                        </div>
+                        <div class="filter-box_item">
+                            <div class="filter-box__title">Рейтинг</div>
+                            <select
+                                class="focus:outline-lime-800 outline-solid"
+                            >
+                                <option>Любой рейтинг</option>
+                                <option>10</option>
+                                <option>9</option>
+                                <option>8</option>
+                            </select>
+                        </div>
+                        <div class="filter-box_item">
+                            <div class="filter-box__title">Цена от:</div>
+                            <input
+                                class="input-price rounded-md focus:outline-solid outline-lime-800"
+                            />
+                        </div>
+                        <div class="filter-box_item">
+                            <div class="filter-box__title">Цена до:</div>
+                            <input
+                                class="input-price rounded-md focus:outline-solid outline-lime-800"
+                            />
+                        </div>
+                        <div>
+                            <button class="btn-primary mt-3" id="btn-searchTour">
+                                Применить
+                            </button>
+                        </div>
+                    </div>
+                </div>
+
+                <h1
+                    class="text-gray-800 text-4xl font-sans text-center font-semibold pt-2"
+                >
+                    Доступные туры компании
+                </h1>
             </div>
-            <div class="flex gap-6 max-w-5xl m-auto my-10 grid md:grid-cols-2 lg:grid-cols-3" id="container">
-                <!-- Первая карточка -->
-            
-            </div>
+            <div
+                class="flex gap-6 max-w-5xl m-auto my-10 grid md:grid-cols-2 lg:grid-cols-3"
+                id="container"
+            ></div>
         </div>
-            <div class="btn-up btn-up_hide"><svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="white" class="w-6 h-6">
-              <path stroke-linecap="round" stroke-linejoin="round" d="M4.5 15.75l7.5-7.5 7.5 7.5" />
+        <div class="btn-up btn-up_hide">
+            <svg
+                xmlns="http://www.w3.org/2000/svg"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke-width="1.5"
+                stroke="white"
+                class="w-6 h-6"
+            >
+                <path
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    d="M4.5 15.75l7.5-7.5 7.5 7.5"
+                />
             </svg>
-            </div>
-            
         </div>
-    
     </body>
 </html>
