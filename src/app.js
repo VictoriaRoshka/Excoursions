@@ -4,15 +4,16 @@ import { ru } from 'date-fns/locale';
 
 const container = document.getElementById('container')
 
-async function showTours(){
+async function loadTours(){
 
   const response = await fetch('https://www.bit-by-bit.ru/api/student-projects/tours')
-  const tours = await response.json()
-  console.log(tours)
+  const data = await response.json()
+  return data
 
-  
-  
-  
+}
+
+function showTours(tours){
+
   tours.forEach(tour => {
 
     let location
@@ -53,4 +54,9 @@ async function showTours(){
 }
 
 
-showTours()
+async function init(){
+  const tours = await loadTours()
+  showTours(tours)
+}
+
+init()
