@@ -16,7 +16,7 @@
                     <button class="btn-primary" id="openFilerMenu">Искать тур</button>
                 </div>
 
-                <div class="filter-box" id="filter-box">
+                <div class="filter-box flex flex-col" id="filter-box">
                     <div class="flex justify-end">
                         <button id="closeFilerMenu">
                             <img
@@ -32,10 +32,10 @@
                             <select
                                 class="focus:outline-lime-800 outline-solid"
                             >
-                                <option>Все страны</option>
-                                <option>Тайланд</option>
-                                <option>Мальдивы</option>
-                                <option>Индонезия</option>
+                                <option id="all-country">Все страны</option>
+                                <option id="Tai">Тайланд</option>
+                                <option id="Mald">Мальдивы</option>
+                                <option id="Ind">Индонезия</option>
                             </select>
                         </div>
                         <div class="filter-box_item">
@@ -44,21 +44,21 @@
                                 class="focus:outline-lime-800 outline-solid"
                             >
                                 <option>Любой рейтинг</option>
-                                <option>10</option>
-                                <option>9</option>
-                                <option>8</option>
+                                <option id="10-rate">10</option>
+                                <option id="9-rate">9</option>
+                                <option id="8-rate">8</option>
                             </select>
                         </div>
                         <div class="filter-box_item">
                             <div class="filter-box__title">Цена от:</div>
                             <input
-                                class="input-price rounded-md focus:outline-solid outline-lime-800"
+                                class="input-price rounded-md focus:outline-solid outline-lime-800" id="min-price"
                             />
                         </div>
                         <div class="filter-box_item">
                             <div class="filter-box__title">Цена до:</div>
                             <input
-                                class="input-price rounded-md focus:outline-solid outline-lime-800"
+                                class="input-price rounded-md focus:outline-solid outline-lime-800" id="max-price"
                             />
                         </div>
                         <div>

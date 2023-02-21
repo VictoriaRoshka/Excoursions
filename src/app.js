@@ -2,6 +2,19 @@ import { format } from "date-fns"
 import { ru } from "date-fns/locale"
 
 const container = document.getElementById("container")
+const openFilerMenu = document.getElementById("openFilerMenu")
+const filterMenu = document.getElementById("filter-box")
+const closeFilterMenu = document.getElementById("closeFilerMenu")
+openFilerMenu.addEventListener('click',openFiler)
+closeFilterMenu.addEventListener('click',closeFiler)
+
+function openFiler(){
+
+    filterMenu.style.display = "flex"
+}
+function closeFiler(){
+    filterMenu.style.display = "none"
+}
 
 async function loadTours() {
     const response = await fetch(

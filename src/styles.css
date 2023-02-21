@@ -39,7 +39,7 @@
     padding-right: 5px;
     border: 1px solid #484846;
     border-radius: 5px;
-    box-shadow: 1px 1px 20px rgb(117, 112, 112);
+    display: none;
 }
 .filter-box__item {
     display: flex;
