@@ -9,7 +9,7 @@ const closeFilterMenu = document.getElementById("closeFilerMenu")
 const searchTour = document.getElementById("btn-searchTour")
 openFilerMenu.addEventListener('click',openFiler)
 closeFilterMenu.addEventListener('click',closeFiler)
-// searchTour.addEventListener('click', filter)
+
 
 
 
@@ -34,6 +34,7 @@ async function loadTours() {
 }
 
 function showTours(tours) {
+    container.innerHTML = ""
     tours.forEach((tour) => {
         let location
 
@@ -83,27 +84,26 @@ function showTours(tours) {
     })
 }
 
-function filterByCountry(tours, country){
+function filterTours(tours) {
 
-    const filteredCountry = tours.filter((tour) => {
-        return tour.country === country})
+    const country = document.getElementById('select-country').value
+    const rate = document.getElementById('select-rate').value
+    const minPrice = document.getElementById('min-price')
+    const maxPrice = document.getAnimations('max-price')
+
+    const filteredTours = tours.filter((tour) => {
+
+    return tour.country === country && tour.rating >= rate})
 
         
 
-        showTours(filteredCountry)
-        
+  showTours(filteredTours)
+
+
 
 }
 
-function filterByRate(tours, rate){
 
-    const filteredRate = tours.filter((tour) => {
-        return tour.rate === rate})
-
-        showTours(filteredRate)
-        
-
-}
 
     
 
@@ -111,8 +111,7 @@ async function init() {
     const tours = await loadTours()
     showTours(tours)
 
-    selectCountry = document.getElementById('select-country')
-    selectCountry.addEventListener('change',() => filterByCountry(tours, selectCountry.value))
+    searchTour.addEventListener('click', ()=> filterTours(tours))
 
 }
 
