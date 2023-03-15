@@ -1,12 +1,18 @@
 import { format } from "date-fns"
 import { ru } from "date-fns/locale"
+import { doc } from "prettier"
 
 const container = document.getElementById("container")
 const openFilerMenu = document.getElementById("openFilerMenu")
 const filterMenu = document.getElementById("filter-box")
 const closeFilterMenu = document.getElementById("closeFilerMenu")
+const searchTour = document.getElementById("btn-searchTour")
 openFilerMenu.addEventListener('click',openFiler)
 closeFilterMenu.addEventListener('click',closeFiler)
+// searchTour.addEventListener('click', filter)
+
+
+
 
 function openFiler(){
 
@@ -15,6 +21,9 @@ function openFiler(){
 function closeFiler(){
     filterMenu.style.display = "none"
 }
+
+
+
 
 async function loadTours() {
     const response = await fetch(
@@ -74,9 +83,38 @@ function showTours(tours) {
     })
 }
 
+function filterByCountry(tours, country){
+
+    const filteredCountry = tours.filter((tour) => {
+        return tour.country === country})
+
+        
+
+        showTours(filteredCountry)
+        
+
+}
+
+function filterByRate(tours, rate){
+
+    const filteredRate = tours.filter((tour) => {
+        return tour.rate === rate})
+
+        showTours(filteredRate)
+        
+
+}
+
+    
+
 async function init() {
     const tours = await loadTours()
     showTours(tours)
+
+    selectCountry = document.getElementById('select-country')
+    selectCountry.addEventListener('change',() => filterByCountry(tours, selectCountry.value))
+
 }
+
 
 init()
