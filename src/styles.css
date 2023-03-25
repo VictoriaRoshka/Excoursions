@@ -39,7 +39,11 @@
     padding-right: 5px;
     border: 1px solid #484846;
     border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
     display: none;
+    
 }
 .filter-box__item {
     display: flex;
@@ -53,4 +57,12 @@
 }
 .input-price {
     border: 2px solid rgb(117, 112, 112);
+}
+
+@media(max-width: 768px){
+    .filter-box__items{
+        flex-wrap: wrap;
+        
+    }
+    
 }
