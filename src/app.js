@@ -88,24 +88,43 @@ function filterTours(tours) {
 
     const country = document.getElementById('select-country').value
     const rate = document.getElementById('select-rate').value
-    const minPrice = document.getElementById('min-price')
-    const maxPrice = document.getAnimations('max-price')
+    const minPrice = document.getElementById('min-price').value
+    const maxPrice = document.getElementById('max-price').value
 
-    const filteredTours = tours.filter((tour) => {
+    const filteredCountry = tours.filter((tour) => {
 
-    return tour.country === country && tour.rating >= rate})
+        if(country === "all-country"){
+            return true
+        } else {
+           return tour.country === country
+        }
+     })
+    
+    const filteredRate = filteredCountry.filter((tour) => {
+            return tour.rating >= rate 
+        })
 
+     const filteredPrice = filteredRate.filter((tour)=> {
+        if(tour.price >= minPrice && maxPrice >= tour.price){
+            return true
+        }
         
+     })
 
-  showTours(filteredTours)
+     if(minPrice.length > 0, maxPrice.length > 0){
+        showTours(filteredPrice)
+
+     }else{
+        showTours(filteredRate)
+     }
+
+     
+  
 
 
 
 }
 
-
-
-    
 
 async function init() {
     const tours = await loadTours()
