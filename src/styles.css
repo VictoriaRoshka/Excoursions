@@ -2,12 +2,12 @@
 @tailwind components;
 @tailwind utilities;
 
-.btn-primary{
+.btn-primary {
     @apply border-2 rounded-md border-solid border-lime-800 py-1 px-1 transition ease-in-out delay-150 hover:bg-lime-700 hover:text-white hover:scale-110 hover:duration-300;
 }
 .btn-up {
     position: fixed;
-    background-color: #484846 ;
+    background-color: #484846;
     right: 20px;
     bottom: 200px;
     border-radius: 20px;
@@ -23,11 +23,56 @@
     display: none;
 }
 
-.rating{
-    background-image: url('../images/starIcon.png');
+.no-results{
+    margin: 100px auto;
+    text-align: center;
+    color: gray;
+    font-size: 20px;
+    display: none;
+
+
+}
+
+.rating {
+    background-image: url("../images/starIcon.png");
     background-position: center;
     background-size: contain;
     background-repeat: no-repeat;
-    width: 30px;
-    height: 30px;
+    width: 20px;
+    height: 20px;
+}
+
+.filter-box {
+    padding-left: 20px;
+    padding-bottom: 20px;
+    padding-top: 5px;
+    padding-right: 5px;
+    border: 1px solid #484846;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    display: none;
+    
+}
+.filter-box__item {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10;
+}
+.filter-box__title {
+    color: rgb(180 83 9);
+    font-weight: 500;
+}
+.input-price {
+    border: 2px solid rgb(117, 112, 112);
+}
+
+@media(max-width: 768px){
+    .filter-box__items{
+        flex-wrap: wrap;
+        
+    }
+    
 }
