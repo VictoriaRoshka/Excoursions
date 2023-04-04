@@ -33,6 +33,8 @@ async function loadTours() {
     return data
 }
 
+
+
 function showTours(tours) {
     container.innerHTML = ""
     tours.forEach((tour) => {
@@ -94,9 +96,12 @@ function showTours(tours) {
         const tourHotel = document.getElementById("modal-box__tour-hotel")
         const tourData = document.getElementById("modal-box__tour-data")
         const tourPrice = document.getElementById("modal-box__tour-price")
+        const sendData = document.getElementById("buyTour")
+
 
         orderTour.addEventListener('click', showModal)
         closeBtn.addEventListener('click', closeModal)
+        sendData.addEventListener('click', sendTour)
     
         function showModal(){
             
@@ -117,6 +122,28 @@ function showTours(tours) {
         }
     
     })
+}
+
+function sendTour(){
+    const clientFirstName = documnt.getElementById("input-firstName").value
+    const clientLastName = documnt.getElementById("input-lastName").value
+    const clientPhone = documnt.getElementById("input-phone").value
+    const clientMail = documnt.getElementById("input-mail").value
+
+
+    const url = "https://www.bit-by-bit.ru/api/student-projects/tours/${tour.id}"
+    const newOrder ={
+        customerName: clientFirstName + clientLastName,
+        phone: clientPhone,
+        email: clientMail
+
+    }
+
+    let response = await fetch(url, {
+        method:"POST",
+        body: JSON.stringify(newOrder)
+    })
+    let jsonData = await response.json()
 }
 
 
