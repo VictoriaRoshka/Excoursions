@@ -85,6 +85,7 @@ function showTours(tours) {
     })
 }
 
+
 function filterTours(tours) {
     const noResults = document.getElementById('no-results')
     const country = document.getElementById('select-country').value
