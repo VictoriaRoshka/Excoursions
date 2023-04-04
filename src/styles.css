@@ -76,3 +76,10 @@
     }
     
 }
+.modal-box__tour{
+    display:flex;
+    flex-direction: column;
+}
+.modal_item{
+
+}

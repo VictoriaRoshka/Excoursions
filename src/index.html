@@ -80,36 +80,38 @@
                 </h1>
                 <div class="no-results" id="no-results">Нет результатов</div>
                 <div class="no-results" id="no-results">Нет результатов</div>
-                <div class="flex my-10 mr-auto ml-auto gap-1 border-2" id="modal-box">
-                    <div id="modal-box__tour">
-                        <div id="modal-box__tour-image"></div>
-                        <h1 id="modal-box__tour-country"></h1>
-                        <h2 id="modal-box__tour-hotel"></h2>
-                        <p  id="modal-box__tour-data"></p>
-                        <p id="modal-box__tour-price"></p>
+                <div class="flex my-10 mr-auto ml-auto gap-1 border-2 hidden" id="modal-box">
+                    <div id="modal-box__tour" class="modal-box__tour flex flex-col gap-1 bg-white drop-shadow-lg rounded-md justify-between">
+                        <div id="modal-box__tour-image" class="modal_item rounded-tl-md rounded-tr-md object-contain"></div>
+                        <h1 id="modal-box__tour-country" class="text-xl font-medium text-gray-700 px-2"></h1>
+                        <h2 id="modal-box__tour-hotel" class="font-bold text-xl text-amber-700"></h2>
+                        <p  id="modal-box__tour-data" class="font-medium text-gray-600"></p>
+                        <p id="modal-box__tour-price" class="text-lime-900 text-xl font-semibold">₽</p>
 
 
                     </div>
-                    <div id="modal-box__client">
+                    <div id="modal-box__client" class="modal-box__tour flex flex-col gap-1 bg-white drop-shadow-lg rounded-md justify-between">
                         <div>
                             <p>Имя</p>
-                            <input id="input-firstName"/>
+                            <input id="input-firstName" class="outline-green-600 border-2" />
                         </div>
                         <div>
                             <p>Фамилия</p>
-                            <input id="input-lstName"/>
+                            <input id="input-lstName" class="outline-green-600 border-2"/>
                         </div>
                         <div>
                             <p>Телефон</p>
-                            <input id="input-phone"/>
+                            <input id="input-phone" class="outline-green-600 border-2"/>
                         </div>
                         <div>
                             <p>Эл.Почта</p>
-                            <input id="input-mail"/>
+                            <input id="input-mail" class="outline-green-600 border-2"/>
                         </div>
                         <button id="buyTour">Отправить</button>
+                        <button id="closeModal">Отменить</button>
                         
                     </div>
+
                 </div>
             </div>
             <div class="flex gap-6 max-w-5xl m-auto my-10 grid md:grid-cols-2 lg:grid-cols-3" id="container">
