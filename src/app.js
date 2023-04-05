@@ -10,6 +10,8 @@ const searchTour = document.getElementById("btn-searchTour")
 openFilerMenu.addEventListener('click',openFiler)
 closeFilterMenu.addEventListener('click',closeFiler)
 
+let currentTour
+
 
 
 
@@ -47,9 +49,7 @@ function showTours(tours) {
         }
 
         container.innerHTML += `<div class="flex flex-col gap-1 bg-white drop-shadow-lg rounded-md justify-between">
-    <div><img class="rounded-tl-md rounded-tr-md object-contain" src="${
-        tour.image
-    }" alt=""/></div>
+    <div><img class="rounded-tl-md rounded-tr-md object-contain" src="${tour.image}" alt=""/></div>
     <div class="flex items-center justife-center">${location}</div>
     <div class="flex justify-between px-2">
     <h1 class="font-bold text-xl text-amber-700">${tour.hotelName}</h1>
@@ -104,13 +104,15 @@ function showTours(tours) {
         sendData.addEventListener('click', sendTour)
     
         function showModal(){
+
+            currentTour = tour.id
             
             modalBox.style.display = 'flex'
 
             tourImage.innerHTML = tour.image
             tourCountry.innerHTML = tour.country
             tourHotel.innerHTML = tour.hotelName
-            tourData.innerHTML = tour.data
+            tourData.innerHTML = tour.startTime + tour.endTime
             tourPrice.innerHTML = tour.price
 
 
@@ -124,14 +126,14 @@ function showTours(tours) {
     })
 }
 
-function sendTour(){
-    const clientFirstName = documnt.getElementById("input-firstName").value
-    const clientLastName = documnt.getElementById("input-lastName").value
-    const clientPhone = documnt.getElementById("input-phone").value
-    const clientMail = documnt.getElementById("input-mail").value
+async function sendTour(){
+    const clientFirstName = document.getElementById("input-firstName").value
+    const clientLastName = document.getElementById("input-lastName").value
+    const clientPhone = document.getElementById("input-phone").value
+    const clientMail = document.getElementById("input-mail").value
 
 
-    const url = "https://www.bit-by-bit.ru/api/student-projects/tours/${tour.id}"
+    const url = `https://www.bit-by-bit.ru/api/student-projects/tours/currentTour`
     const newOrder ={
         customerName: clientFirstName + clientLastName,
         phone: clientPhone,
@@ -184,19 +186,10 @@ function filterTours(tours) {
      })
 
    if(filteredPrice.length === 0){
+            container.innerHTML = ""
             noResults.style.display = "flex"
-        }else if(filteredRate.length === 0){
-            noResults.style.display = "flex"
-
-        }else if(filteredCountry.length === 0){
-            noResults.style.display = "flex"
-        }
-
-        if(minPrice>0, maxPrice.length >0){
-            noResults.style.display = "none"
-            showTours(filteredPrice)
     
-         }else{
+        }else{
             noResults.style.display = "none"
             showTours(filteredRate)}
 }
