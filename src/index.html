@@ -11,41 +11,48 @@
     <body>
         <div class="add-modal__container" id="modal-box">
             <div class="modal-box">
-                <div id="modal-box__tour" class="modal-box__tour flex flex-col gap-1 bg-white drop-shadow-lg rounded-md justify-between">
-                    <img id="modal-box__tour-image" class="modal_item rounded-tl-md rounded-tr-md object-contain"  alt=""/>
-                    <h1 id="modal-box__tour-country" class="text-xl font-medium text-gray-700 px-2"></h1>
-                    <h2 id="modal-box__tour-hotel" class="font-bold text-xl text-amber-700"></h2>
-                    <p  id="modal-box__tour-data" class="font-medium text-gray-600"></p>
-                    <p id="modal-box__tour-price" class="text-lime-900 text-xl font-semibold">₽</p>
-    
-    
+                <div class="flex" id="tourOrder-box">
+                    <div id="modal-box__tour" class="modal-box__tour flex flex-col gap-1 bg-white drop-shadow-lg rounded-md justify-between">
+                        <img id="modal-box__tour-image" class="modal_item rounded-tl-md rounded-tr-md object-contain"  alt=""/>
+                        <h1 id="modal-box__tour-country" class="text-xl font-medium text-gray-700 px-2"></h1>
+                        <h2 id="modal-box__tour-hotel" class="font-bold text-xl text-amber-700"></h2>
+                        <p  id="modal-box__tour-data" class="font-medium text-gray-600"></p>
+                        <p id="modal-box__tour-price" class="text-lime-900 text-xl font-semibold">₽</p>
+        
+        
+                    </div>
+                    <div id="modal-box__client" class="modal-box__tour flex py-4 px-4 flex-col gap-3 drop-shadow-lg rounded-md justify-between">
+                        <div>
+                            <p>Имя</p>
+                            <input id="input-firstName" class="outline-green-600 border-2" />
+                        </div>
+                        <div>
+                            <p>Фамилия</p>
+                            <input id="input-lastName" class="outline-green-600 border-2"/>
+                        </div>
+                        <div>
+                            <p>Телефон</p>
+                            <input id="input-phone" class="outline-green-600 border-2" type="number"/>
+                        </div>
+                        <div>
+                            <p>Эл.Почта</p>
+                            <input id="input-mail" class="outline-green-600 border-2"/>
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <button id="buyTour" class="btn-primary">Отправить</button> 
+                        
+                        </div>
+                        
+                        
+                    </div>
                 </div>
-                <div id="modal-box__client" class="modal-box__tour flex py-4 px-4 flex-col gap-3 drop-shadow-lg rounded-md justify-between">
-                    <div>
-                        <p>Имя</p>
-                        <input id="input-firstName" class="outline-green-600 border-2" />
-                    </div>
-                    <div>
-                        <p>Фамилия</p>
-                        <input id="input-lastName" class="outline-green-600 border-2"/>
-                    </div>
-                    <div>
-                        <p>Телефон</p>
-                        <input id="input-phone" class="outline-green-600 border-2" type="number"/>
-                    </div>
-                    <div>
-                        <p>Эл.Почта</p>
-                        <input id="input-mail" class="outline-green-600 border-2"/>
-                    </div>
-                    <div class="flex flex-col gap-3">
-                        <button id="buyTour" class="btn-primary">Отправить</button> 
-                    <button id="closeModal">Отменить</button>
-                    </div>
-                    
-                    
-                </div>
+                
+                <div class="text-green-800 hidden" id="success">Выбранный тур успешно забронирован!</div>
+                <div class="text-red-800 hidden" id="error">Ошибка!Попробуйте еще раз</div>
+                <button id="closeModal">Закрыть</button>
     
             </div>
+            
         </div>
         
         <div class="bg-gray-100 py-7 px-4 min-h-screen">

@@ -142,25 +142,40 @@ function showTours(tours) {
 }
 
 async function sendTour(){
+    const tourOrderbox = document.getElementById("tourOrder-box")
     const clientFirstName = document.getElementById("input-firstName").value
     const clientLastName = document.getElementById("input-lastName").value
     const clientPhone = document.getElementById("input-phone").value
     const clientMail = document.getElementById("input-mail").value
-
-
-    const url = `https://www.bit-by-bit.ru/api/student-projects/tours/${currentTour}`
-    const newOrder ={
+    const successItem = document.getElementById("success")
+    const errorItem = document.getElementById("error")
+    
+    try {
+        const url = `https://www.bit-by-bit.ru/api/student-projects/tours/${currentTour}`
+    
+        const newOrder ={
         customerName: clientFirstName + clientLastName,
         phone: clientPhone,
         email: clientMail
 
     }
 
-    let response = await fetch(url, {
+      let response = await fetch(url, {
         method:"POST",
-        body: JSON.stringify(newOrder)
-    })
-    let jsonData = await response.json()
+        body: JSON.stringify(newOrder)})
+
+      let jsonData = await response.json()
+
+      tourOrderbox.style.display = "none"
+
+      successItem.style.display = "flex"
+        
+    } catch(error) {
+
+        tourOrderbox.style.display = "none"
+
+        errorItem.style.display = "flex"
+    }
 }
 
 
