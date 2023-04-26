@@ -97,6 +97,9 @@ function showTours(tours) {
         const tourData = document.getElementById("modal-box__tour-data")
         const tourPrice = document.getElementById("modal-box__tour-price")
         const sendData = document.getElementById("buyTour")
+        const tourOrderbox = document.getElementById("tourOrder-box")
+        const successItem = document.getElementById("success")
+        const errorItem = document.getElementById("error")
 
 
         orderTour.addEventListener('click', showModal)
@@ -108,6 +111,9 @@ function showTours(tours) {
             currentTour = tour.id
             
             modalBox.style.display = 'flex'
+            tourOrderbox.style.display = 'flex'
+            successItem.style.display = 'none'
+            errorItem.style.display = 'none'
 
             tourImage.innerHTML = `<div class="flex flex-col gap-1 bg-white drop-shadow-lg rounded-md justify-between">
             <div><img class="rounded-tl-md rounded-tr-md object-contain" src="${tour.image}" alt=""/></div>`,
