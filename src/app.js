@@ -115,8 +115,7 @@ function showTours(tours) {
             successItem.style.display = 'none'
             errorItem.style.display = 'none'
 
-            tourImage.innerHTML = `<div class="flex flex-col gap-1 bg-white drop-shadow-lg rounded-md justify-between">
-            <div><img class="rounded-tl-md rounded-tr-md object-contain" src="${tour.image}" alt=""/></div>`,
+            tourImage.src = tour.image
             tourCountry.innerHTML = tour.country,
             tourHotel.innerHTML = tour.hotelName,
             tourData.innerHTML = `<p class="font-medium text-gray-600">${format(
